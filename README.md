@@ -22,6 +22,8 @@ Az alkalmazás megjelenését a következő [Figma wireframe](https://www.figma.
 
 Fontos megjegyezni, hogy ez csak egy prototípus. Szeretnék látni, hogy milyen ötleteid, fejlesztéseid vannak a termék UI-ával kapcsolatban, szóval nyugodtan fejleszd tovább a wireframe-et új funkciókkal, animációkkal, vizuális megjelenéssel, stb.
 
+A logo megegyezik az ebben a repoban használttal.
+
 ### Termék követelmények
 
 - tagok listázása

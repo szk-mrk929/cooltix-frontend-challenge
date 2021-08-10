@@ -1,18 +1,46 @@
-# Cooltix - Frontend kihívás
+<p align="center">
+  <a href="https://cooltix.hu">
+    <img src="logo.svg" width="200" alt="Cooltix logo+">
+  </a>
+</p>
 
-A kihívás fő célja a Frontend fejlesztési készségeid tesztelése.
+# Cooltix - Frontend Kihívás
 
-- a kódolási stílusod
-- a React framework és technológiák ismerete
-- a UI/UX készségeid
+A kihívás célja a frontend fejlesztési készségeid tesztelése.
+
+- kódolási stílus
+- React framework és technológiák ismerete
+- UI/UX készségek
 
 ## A kihívás
 
+A kihívás során egy tagokat megjelenítő alkalmazást kell elkészítened.
+
+### Megjelenés
+
+Az alkalmazás megjelenését a következő [Figma wireframe](https://www.figma.com/file/Ld8KvwQBUjeqmqUdbe71yN/Cooltix-Test-front-end-Desktop?node-id=0%3A1) alapján kell elkészítened.
+
+Fontos megjegyezni, hogy ez csak egy prototípus. Szeretnék látni, hogy milyen ötleteid, fejlesztéseid vannak a termék UI-ával kapcsolatban, szóval nyugodtan fejleszd tovább a wireframe-et új funkciókkal, animációkkal, vizuális megjelenéssel, stb.
+
 ### Termék követelmények
+
+- tagok listázása
+- szűrés államok alapján
+- keresés név alapján
+- rendezés vezetéknév vagy keresztnév alapján
+- általad összerakott **Member details** oldal, amely egy tag részletes adatait jeleníti meg
+- navigáció, mely egy tag kártyájára kattintva a részletes oldalra visz
+- töltési nézet, amég az adatok be nem töltődnek az API-ról
+
+### API
+
+- Az alkalmazáshoz szükséges GraphQL backendet ezen az URL-en éred el: `https://cooltix-frontend-challenge.herokuapp.com`
+- A linket böngészőben megnyitva a GraphQL Playground segítségével körbejárhatod az adatstruktúrát és tesztelheted az API működését.
+- A frontend az API–hoz tetszőleges GraphQL kliensen keresztül (Apollo Client, Relay, stb.) kapcsolódhat.
 
 ### Tech követelmények
 
-- React
+- React (bármilyen általad választott React alapú megközelítést használhatsz: Next.js, Create React App, stb.)
 - Code Linter
 - TypeScript [bónusz pont]
 - CSSinJS: styled-components, emotion, stb. [bónusz pont]
@@ -31,10 +59,10 @@ A kihívás fő célja a Frontend fejlesztési készségeid tesztelése.
 
 Amikor végeztél a feladattal küldj egy emailt a **dev@cooltix.hu** címre a következő információkkal:
 
-- Tárgy: [Frontend Fejlesztő] _A Neved_
+- Tárgy: [Frontend Kihívás] _A Neved_
 - Link a repositoryhoz.
 - Link a működő oldalhoz.
 
 ## Kérdések
 
-Ha bármilyen kérdéses vagy javaslatod lenni, akkor küldj nekünk egy emailt a **dev@cooltix.hu** címre.
+Ha bármilyen kérdésed vagy javaslatod lenne, akkor küldj nekünk egy emailt a **dev@cooltix.hu** címre.

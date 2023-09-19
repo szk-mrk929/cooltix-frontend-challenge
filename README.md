@@ -36,7 +36,7 @@ A logo megegyezik az ebben a repoban használttal.
 
 ### API
 
-- Az alkalmazáshoz szükséges GraphQL backendet ezen az URL-en éred el: `https://cooltix-frontend-challenge.herokuapp.com`
+- Az alkalmazáshoz szükséges GraphQL backendet ezen az URL-en éred el: `https://frontend-challenge.dev.cooltix.com`
 - A linket böngészőben megnyitva a GraphQL Playground segítségével körbejárhatod az adatstruktúrát és tesztelheted az API működését.
 - A frontend az API–hoz tetszőleges GraphQL kliensen keresztül (Apollo Client, Relay, stb.) kapcsolódhat.
 

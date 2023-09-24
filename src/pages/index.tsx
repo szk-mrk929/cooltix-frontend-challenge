@@ -5,9 +5,6 @@ export default function Home() {
     <>
       <Head>
         <title>Cooltix</title>
-        <meta name="description" content="Made for Cooltix" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque deserunt ad doloremque quasi labore nobis nihil et, voluptates illum aspernatur

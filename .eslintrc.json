@@ -16,6 +16,8 @@
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
     "prettier/prettier": ["warn", {}, { "usePrettierrc": true, "fileInfoOptions": { "withNodeModules": true } }],
-    "@typescript-eslint/no-unused-vars": ["warn", {}]
+    "@typescript-eslint/no-unused-vars": ["warn", {}],
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/ban-ts-comment": 0
   }
 }

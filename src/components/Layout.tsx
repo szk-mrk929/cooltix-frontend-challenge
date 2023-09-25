@@ -17,7 +17,7 @@ const LayoutRoot = styled.div`
 /**
  * Component: Layout
  */
-function Layout({ className, children, ...props }: LayoutProps) {
+export default function Layout({ className, children, ...props }: LayoutProps) {
   return (
     <LayoutRoot className={className} {...props}>
       <Header />
@@ -26,5 +26,3 @@ function Layout({ className, children, ...props }: LayoutProps) {
     </LayoutRoot>
   );
 }
-
-export default Layout;

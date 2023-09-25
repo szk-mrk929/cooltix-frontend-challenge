@@ -17,12 +17,35 @@ export const GlobalStyles = (
         /* Blue */
         --color-blue-3: #00a4ff;
         --color-blue-4: #0d7fff;
+        --color-blue-4-75: #0d7effbf;
+        --color-blue-4-50: #0d7eff7f;
+        --color-blue-4-25: #0d7eff3f;
+        --color-blue-8: #222d39;
         /* Cyan */
         --color-cyan-3: #00ffff;
       }
 
+      // Scroll bar
+      ::-webkit-scrollbar {
+        width: 1rem;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        border: 4px solid transparent;
+        border-radius: 0.5rem;
+        background-clip: padding-box;
+        background-color: rgba(0, 0, 0, 0.3);
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+      }
+
       html,
       body {
+        color: var(--color-blue-8);
         margin: 0;
         font-family: ${quicksand.style.fontFamily}, Helvetica, Arial, sans-serif;
       }
@@ -52,18 +75,33 @@ export const Container = styled.div`
     margin-inline: auto;
   }
 `;
+export const PageContainer = styled(Container)`
+  padding-block: 2rem;
+`;
 
 export const TextSizeStyles = {
+  xs: css`
+    font-size: 0.75rem;
+    line-height: 1.33;
+  `,
   small: css`
     font-size: 0.875rem;
-    line-height: 1.5rem;
+    line-height: 1.5;
   `,
   normal: css`
     font-size: 1rem;
-    line-height: 1.75rem;
+    line-height: 1.75;
   `,
   big: css`
     font-size: 1.125rem;
-    line-height: 2rem;
+    line-height: 2;
+  `,
+  xl: css`
+    font-size: 1.25rem;
+    line-height: 1.3;
+  `,
+  xxl: css`
+    font-size: 2rem;
+    line-height: 1.5;
   `,
 };

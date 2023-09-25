@@ -10,6 +10,9 @@ export const GlobalStyles = (
         --color-gray-1: #f5f5f5;
         --color-gray-2: #d8d8d8;
         --color-gray-3: #b0b0b0;
+        --color-gray-4: #9b9b9b;
+        --color-gray-5: #4a4a4a;
+        --color-gray-6: #323232;
         --color-gray-9: #1d1d1d;
         /* Blue */
         --color-blue-3: #00a4ff;

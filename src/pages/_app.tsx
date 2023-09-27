@@ -1,3 +1,5 @@
+import '@@libs/prototype';
+
 import Layout from '@@components/Layout';
 import { GlobalStyles } from '@@styles/globals';
 import createCache from '@emotion/cache';

@@ -13,7 +13,7 @@ type InputProps = ComponentProps<'input'> & {
 /**
  * Styled components
  */
-const InputWrapper = styled.fieldset`
+export const InputWrapper = styled.fieldset`
   display: flex;
   gap: 0.25em;
   padding: 0.25rem 0.5rem;
@@ -24,6 +24,7 @@ const InputWrapper = styled.fieldset`
   transition: all .25s ease;
 
   input {
+    width: 100%;
     border: none;
     outline: none;
     font-size: 1em;

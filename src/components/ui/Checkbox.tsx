@@ -13,7 +13,7 @@ type CheckboxProps = ComponentPropsWithoutRef<'input'> & {
  */
 const CheckboxRoot = styled.label`
   display: flex;
-  gap: 0.25em;
+  gap: 0.4rem;
   align-items: flex-start;
   padding: 0.125em;
   cursor: pointer;
@@ -51,10 +51,10 @@ const CheckboxRoot = styled.label`
   }
 `;
 
-export default forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox({ label, children, ...props }) {
+export default forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox({ label, children, ...props }, ref) {
   return (
     <CheckboxRoot>
-      <input type="checkbox" {...props} />
+      <input ref={ref} type="checkbox" {...props} />
       <span>{label || children}</span>
     </CheckboxRoot>
   );

@@ -14,7 +14,7 @@ const cache = createCache({ key: 'next' });
 /**
  * Dynamic imports
  */
-const ApolloCtx = dynamic(() => import('@@contexts/ApolloCtx').then((m) => m.default)); // import ApolloCtx from '@@components/utils/ApolloCtx';
+const ApolloCtx = dynamic(() => import('@@contexts/ApolloCtx').then((m) => m.default)); // import ApolloCtx from '@@contexts/ApolloCtx';
 
 /**
  * Root layout component of Next.js

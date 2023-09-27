@@ -1,10 +1,20 @@
 import Card from '@@components/ui/Card';
-import { TextSizeStyles } from '@@styles/globals';
+import { PageContainer, PageTitle, TextSizeStyles } from '@@styles/globals';
 import styled from '@emotion/styled';
 
 /**
  * Styled components
  */
+export const MembersPageContainer = styled(PageContainer)`
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto 1fr;
+
+  & > ${PageTitle} {
+    grid-column: 1 / -1;
+  }
+`;
 export const MembersNavbar = styled(Card)`
   display: flex;
 `;

@@ -69,7 +69,7 @@ export const GlobalStyles = (
 );
 
 export const Container = styled.div`
-  @media (min-width: 1024px) {
+  @media (min-width: 1100px) {
     width: 100%;
     max-width: 1024px;
     margin-inline: auto;
@@ -77,6 +77,7 @@ export const Container = styled.div`
 `;
 export const PageContainer = styled(Container)`
   padding-block: 2rem;
+  padding-inline: 1rem;
 `;
 
 export const TextSizeStyles = {

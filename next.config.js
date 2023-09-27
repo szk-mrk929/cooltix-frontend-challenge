@@ -14,6 +14,9 @@ const nextConfig = {
   compiler: {
     emotion: true,
   },
+  images: {
+    domains: ['randomuser.me'],
+  },
 };
 
 module.exports = nextConfig;

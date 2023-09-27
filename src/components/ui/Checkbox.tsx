@@ -1,18 +1,26 @@
+import { TextSizeStyles } from '@@styles/globals';
 import styled from '@emotion/styled';
 import { forwardRef, type ComponentPropsWithoutRef } from 'react';
 
 /**
  * Types
  */
-type CheckboxProps = ComponentPropsWithoutRef<'input'> & {
-  label: string;
+type CheckboxCustomProps = {
+  reverted?: boolean;
+  fontWeight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 };
+type CheckboxProps = ComponentPropsWithoutRef<'input'> &
+  CheckboxCustomProps & {
+    label: string;
+  };
 
 /**
  * Styled components
  */
-const CheckboxRoot = styled.label`
+const CheckboxRoot = styled.label<CheckboxCustomProps>`
+  // ${TextSizeStyles.normal}
   display: flex;
+  ${(props) => props.reverted && ' flex-direction: row-reverse'};
   gap: 0.4rem;
   align-items: flex-start;
   padding: 0.125em;
@@ -47,13 +55,15 @@ const CheckboxRoot = styled.label`
 
   span {
     display: block;
-    line-height: 1.25;
+    font-weight: ${({ fontWeight = 400 }) => fontWeight};
+    line-height: 1.25; //1.25;
+    white-space: pre-line;
   }
 `;
 
-export default forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox({ label, children, ...props }, ref) {
+export default forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox({ label, reverted, fontWeight, children, ...props }, ref) {
   return (
-    <CheckboxRoot>
+    <CheckboxRoot fontWeight={fontWeight} reverted={reverted}>
       <input ref={ref} type="checkbox" {...props} />
       <span>{label || children}</span>
     </CheckboxRoot>

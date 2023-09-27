@@ -10,9 +10,7 @@ import { useEffect, useRef } from 'react';
  * Styled components
  */
 const Navbar = styled.nav<{ active?: boolean }>`
-  //DEV: This is the original but I think the smaller padding would fit better to our sticky mechanism
-  // padding: 1.5rem;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1.5rem;
   background-color: var(--color-gray-1);
   border-bottom: 1px solid var(--color-gray-3);
   transition: all 0.5s ease;

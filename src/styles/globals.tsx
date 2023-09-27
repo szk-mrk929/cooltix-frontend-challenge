@@ -20,6 +20,7 @@ export const GlobalStyles = (
         --color-blue-4-75: #0d7effbf;
         --color-blue-4-50: #0d7eff7f;
         --color-blue-4-25: #0d7eff3f;
+        --color-blue-4-10: #0d7eff19;
         --color-blue-8: #222d39;
         /* Cyan */
         --color-cyan-3: #00ffff;

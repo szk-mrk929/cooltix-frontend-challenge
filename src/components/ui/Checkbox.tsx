@@ -36,7 +36,7 @@ const CheckboxRoot = styled.label<CheckboxCustomProps>`
     border-style: solid;
     border-color: var(--color-gray-5);
     border-radius: 0.25rem;
-    background-color: transparent;
+    background-color: #fff;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-origin: border-box;

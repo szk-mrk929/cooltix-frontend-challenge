@@ -1,6 +1,6 @@
 import { TextSizeStyles } from '@@styles/globals';
 import styled from '@emotion/styled';
-import { ComponentPropsWithoutRef, forwardRef } from 'react';
+import { ComponentPropsWithoutRef, forwardRef, useId } from 'react';
 
 /**
  * Types
@@ -34,18 +34,21 @@ export const SelectWrapper = styled.fieldset`
     border: none;
     outline: none;
     background: none;
+    background-color: #fff;
     padding: 0.125em 0.25em;
-    border-width: 2.5px;
+    border-width: 1px;
     border-style: solid;
-    border-color: transparent;
+    border-color: var(--color-gray-3);
     border-radius: 0.25rem;
     transition: all 0.25s ease;
 
     &:hover {
+      border-color: transparent;
       background-color: var(--color-blue-4-25);
       box-shadow: 0 0 0 2.5px var(--color-blue-4-50);
     }
     &:focus-within {
+      border-color: transparent;
       box-shadow: 0 0 0 2.5px var(--color-blue-4-50);
     }
 
@@ -59,10 +62,11 @@ export const SelectWrapper = styled.fieldset`
  * UI component: Select
  */
 export default forwardRef<HTMLSelectElement, SelectProps>(function Select({ label, options, ...props }, ref) {
+  const id = useId();
   return (
     <SelectWrapper>
-      {label && <label>{label}</label>}
-      <select {...props} ref={ref}>
+      {label && <label htmlFor={id}>{label}</label>}
+      <select {...props} id={id} ref={ref}>
         {options.map(({ label, value }, i) => (
           <option value={value} key={i}>
             {label}

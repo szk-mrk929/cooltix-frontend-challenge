@@ -6,16 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "codegen:generate": "graphql-codegen --config src/graphql/codegen.ts"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.4",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "graphql": "^16.8.1",
     "next": "13.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/client-preset": "^4.1.0",
     "@types/node": "20.6.4",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",

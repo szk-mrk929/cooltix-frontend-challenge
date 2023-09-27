@@ -7,6 +7,7 @@ import { createContext, useCallback, useContext, useMemo, useReducer, type Chang
 /**
  * Types
  */
+// Context
 type MembersContextType = {
   members: Member[];
   filteredMembers: Member[];
@@ -18,23 +19,26 @@ type MembersContextType = {
   loading: boolean;
   refetch: (variables?: Partial<OperationVariables> | undefined) => Promise<ApolloQueryResult<QueryMembersType>>;
 };
-
+// Reducer
 type MembersFiltersStateType = {
   name: string;
   state: string[];
+  sort: string;
 };
 type MembersFilterReducerFn = (state: MembersFiltersStateType, action: ActionType) => MembersFiltersStateType;
 type NameChangedAction = { type: 'NameChanged'; value: string };
 type StateSetAction = { type: 'StateSet'; value: string[] };
 type StateChangedAction = { type: 'StateChanged'; state: string; value: boolean };
-type ActionType = NameChangedAction | StateSetAction | StateChangedAction;
+type SortChangedAction = { type: 'SortChanged'; value: string };
+type ActionType = NameChangedAction | StateSetAction | StateChangedAction | SortChangedAction;
 
+// Provider
 type MembersProviderProps = PropsWithChildren;
 
 /**
  * Constants
  */
-const initialFilterState: MembersFiltersStateType = { name: '', state: [] };
+const initialFilterState: MembersFiltersStateType = { name: '', state: [], sort: '' };
 
 /**
  * Context: MembersContext
@@ -60,6 +64,10 @@ const MembersFilterReducer: MembersFilterReducerFn = (state, action) => {
       else state_.state = state_.state.filter((v) => v !== action.state);
       return state_;
     }
+    case 'SortChanged': {
+      state_.sort = action.value;
+      return state_;
+    }
     default:
       return state;
   }
@@ -74,11 +82,15 @@ export function MembersProvider({ children }: MembersProviderProps) {
 
   const members = useMemo(() => data?.allMembers || [], [data?.allMembers]);
   const filteredMembers = useMemo(() => {
-    let list = members;
+    let list = members.slice();
     if (state.name) list = list.filter(({ firstName, lastName }) => (firstName + ' ' + lastName).toLowerCase().includes(state.name.toLowerCase())); // filter by name
     if (state.state.length) list = list.filter((member) => state.state.includes(member.address.state)); // filter by state
+    if (state.sort.length) {
+      const [by, direction] = state.sort.split('_');
+      list = list.sort((A, B) => A[by].localeCompare(B[by]) * +direction);
+    }
     return list;
-  }, [members, state.name, state.state]);
+  }, [members, state.name, state.sort, state.state]);
   const stateList: MembersContextType['stateList'] = useMemo(
     () =>
       Array.from(
@@ -135,7 +147,16 @@ export function useMembers() {
       }),
     [filterAction]
   );
+  const sortChange = useCallback(
+    (e: ChangeEvent<HTMLSelectElement>) => {
+      return filterAction({
+        type: 'SortChanged',
+        value: e.target.value,
+      });
+    },
+    [filterAction]
+  );
 
-  return { filterAction, filterNameChange, filterStateSet, filterStateChanged, ...context };
+  return { filterAction, filterNameChange, filterStateSet, filterStateChanged, sortChange, ...context };
 }
 export default useMembers;

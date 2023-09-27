@@ -17,6 +17,11 @@ export const MembersPageContainer = styled(PageContainer)`
 `;
 export const MembersNavbar = styled(Card)`
   display: flex;
+
+  & > p {
+    margin-right: auto;
+    line-height: 1.5;
+  }
 `;
 export const MembersStateFilterContainer = styled(Card)`
   grid-row: 2 / -1;

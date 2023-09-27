@@ -61,6 +61,9 @@ const CheckboxRoot = styled.label<CheckboxCustomProps>`
   }
 `;
 
+/**
+ * UI component: Checkbox
+ */
 export default forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox({ label, reverted, fontWeight, children, ...props }, ref) {
   return (
     <CheckboxRoot fontWeight={fontWeight} reverted={reverted}>

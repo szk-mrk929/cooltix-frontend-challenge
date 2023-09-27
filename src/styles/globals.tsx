@@ -68,6 +68,9 @@ export const GlobalStyles = (
   />
 );
 
+/**
+ * Global styled components
+ */
 export const Container = styled.div`
   @media (min-width: 1100px) {
     width: 100%;
@@ -79,7 +82,15 @@ export const PageContainer = styled(Container)`
   padding-block: 2rem;
   padding-inline: 1rem;
 `;
+export const LayoutRoot = styled.div`
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+`;
 
+/**
+ * Global style: Text size variants
+ */
 export const TextSizeStyles = {
   xs: css`
     font-size: 0.75rem;

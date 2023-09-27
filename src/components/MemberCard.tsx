@@ -1,39 +1,44 @@
-import Card from '@@components/ui/Card';
-import { TextSizeStyles } from '@@styles/globals';
-import styled from '@emotion/styled';
+import Avatar from '@@assets/icons/avatar.svg';
+import { MemberCardRoot } from '@@components/pages/members/Members.styles';
+import { Member } from '@@graphql/types';
+import Image from 'next/image';
 
-const MemberCardRoot = styled(Card)`
-  padding: 2.5rem 1rem;
-  text-align: center;
+/**
+ * Types
+ */
+type MemberCardProps = {
+  data: Member;
+};
 
-  figure {
-    width: 6rem;
-    height: 6rem;
-    border-radius: 50%;
-    background-color: gray;
-    margin-inline: auto;
-    margin-bottom: 1.5rem;
-  }
-  h3 {
-    ${TextSizeStyles.xl}
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-  p {
-    margin-bottom: 0.75rem;
-  }
-  small {
-    ${TextSizeStyles.xs}
-    font-weight: 500;
-  }
-`;
-export default function MemberCard(props: any) {
+/**
+ * Component: MemberCard
+ */
+export default function MemberCard({ data }: MemberCardProps) {
+  const { id, firstName, lastName, profilePictureUrl, address } = data;
+  const { postalCode, state, city, addressLine } = address;
+
   return (
     <MemberCardRoot as="article">
-      <figure></figure>
-      <h3>Name Name</h3>
-      <p>text</p>
-      <small>address</small>
+      <figure>
+        <Image
+          src={profilePictureUrl ?? Avatar.src} //
+          width="100"
+          height="100"
+          placeholder="blur"
+          blurDataURL={Avatar.src}
+          alt={id + '_avatar'}
+        />
+      </figure>
+      <h3>
+        {firstName} {lastName}
+      </h3>
+      <p>
+        {state}, {postalCode}
+      </p>
+      <small>
+        {addressLine} <br />
+        {city}
+      </small>
     </MemberCardRoot>
   );
 }

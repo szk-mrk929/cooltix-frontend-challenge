@@ -24,9 +24,10 @@ export const MembersStateFilterContainer = styled(Card)`
   gap: 0.75rem;
   flex-direction: column;
   position: sticky;
-  inset-block: 1rem;
+  top: calc(1rem + var(--nav-height, 0));
+  bottom: 1rem;
   height: fit-content;
-  max-height: calc(100dvh - 4rem);
+  max-height: calc(100dvh - 4rem - var(--nav-height, 0));
   min-width: 15ch;
   max-width: 25ch;
 

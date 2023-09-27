@@ -14,15 +14,24 @@ function Members_StateFilter() {
     const el = document.querySelector<HTMLElement>('main > header');
     if (!el || el.offsetTop > window.scrollY) return;
 
-    el.style.scrollMargin = '1rem';
+    el.style.scrollMargin = 'calc(1rem + var(--nav-height,0))';
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, [filter.state]);
+  }, [filter.state.length]);
 
   return (
     <MembersStateFilterContainer as="aside">
       <header>
         <h3>States</h3>
-        <Checkbox name="all/clear" label={isAll ? 'All' : 'Clear all'} checked={!isAll} onChange={() => filterStateSet()} fontWeight={600} reverted />
+        {!!stateList.length && (
+          <Checkbox
+            name="all_clear" //
+            label={isAll ? 'All' : 'Clear all'}
+            checked={!isAll}
+            onChange={() => filterStateSet()}
+            fontWeight={600}
+            reverted
+          />
+        )}
       </header>
 
       {!!stateList.length && (

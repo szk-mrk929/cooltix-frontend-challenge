@@ -23,6 +23,8 @@ export const GlobalStyles = (
         --color-blue-8: #222d39;
         /* Cyan */
         --color-cyan-3: #00ffff;
+
+        --nav-height: 0;
       }
 
       // Scroll bar

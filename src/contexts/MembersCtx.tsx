@@ -46,23 +46,20 @@ const MembersFilterReducer: MembersFilterReducerFn = (state, action) => {
   const state_ = JSON.parse(JSON.stringify(state)) as MembersFiltersStateType;
 
   switch (action.type) {
-    case 'NameChanged':
+    case 'NameChanged': {
+      state_.name = action.value;
       return state_;
-
+    }
     case 'StateSet': {
       if (!Array.isArray(action.value)) state_.state = [];
       else state_.state = action.value || [];
-
       return state_;
     }
-
     case 'StateChanged': {
       if (action.value && !state_.state.includes(action.state)) state_.state = [...state_.state, action.state];
       else state_.state = state_.state.filter((v) => v !== action.state);
-
       return state_;
     }
-
     default:
       return state;
   }
@@ -77,9 +74,11 @@ export function MembersProvider({ children }: MembersProviderProps) {
 
   const members = useMemo(() => data?.allMembers || [], [data?.allMembers]);
   const filteredMembers = useMemo(() => {
-    if (!state.state.length) return members;
-    return members.filter((member) => state.state.includes(member.address.state));
-  }, [members, state.state]);
+    let list = members;
+    if (state.name) list = list.filter(({ firstName, lastName }) => (firstName + ' ' + lastName).toLowerCase().includes(state.name.toLowerCase())); // filter by name
+    if (state.state.length) list = list.filter((member) => state.state.includes(member.address.state)); // filter by state
+    return list;
+  }, [members, state.name, state.state]);
   const stateList: MembersContextType['stateList'] = useMemo(
     () =>
       Array.from(
@@ -111,10 +110,17 @@ export function MembersProvider({ children }: MembersProviderProps) {
 export function useMembers() {
   const { filterAction, ...context } = useContext(MembersContext);
 
+  const filterNameChange = useCallback(
+    (value: string) =>
+      filterAction({
+        type: 'NameChanged',
+        value,
+      }),
+    [filterAction]
+  );
   const filterStateSet = useCallback(() => {
     const all = context.stateList.map(([state]) => state);
     const filter = context.filter.state;
-
     return filterAction({
       type: 'StateSet',
       value: filter.length ? (filter.length < all.length ? all : []) : filter.length <= 0 ? all : [],
@@ -130,6 +136,6 @@ export function useMembers() {
     [filterAction]
   );
 
-  return { filterAction, filterStateSet, filterStateChanged, ...context };
+  return { filterAction, filterNameChange, filterStateSet, filterStateChanged, ...context };
 }
 export default useMembers;

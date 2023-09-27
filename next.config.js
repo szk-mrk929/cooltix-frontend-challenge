@@ -13,6 +13,7 @@ const nextConfig = {
   productionBrowserSourceMaps: true,
   compiler: {
     emotion: true,
+    removeConsole: isProd,
   },
   images: {
     domains: ['randomuser.me'],

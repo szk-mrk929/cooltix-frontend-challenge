@@ -27,7 +27,7 @@ const FooterRoot = styled.footer`
     }
   }
 
-  & > h5 {
+  & > h2 {
     ${TextSizeStyles.small}
     font-weight: 500;
   }
@@ -54,7 +54,7 @@ const FooterMailLink = styled(({ to, className, ...props }: ComponentProps<'a'> 
 export default function Footer() {
   return (
     <FooterRoot>
-      <a href="https://cooltix.hu" target="_blank" rel="noopener noreferrer">
+      <a title="Cooltix website" href="https://cooltix.hu" target="_blank" rel="noopener noreferrer">
         <CooltixLogo mono />
         {/** DEV: I chose SVG component because of the color change on hover.
          * @example Alternative solution:
@@ -66,7 +66,7 @@ export default function Footer() {
 
       <FooterMailLink to="ticket@cooltix.hu" />
 
-      <h5>Follow us on networks</h5>
+      <h2>Follow us on networks</h2>
       <div role="group">
         <SocialIcon variant="facebook" />
         <SocialIcon variant="linkedin" />

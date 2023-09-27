@@ -21,7 +21,7 @@ function Members_StateFilter() {
   return (
     <MembersStateFilterContainer as="aside">
       <header>
-        <h3>States</h3>
+        <h1>States</h1>
         {!!stateList.length && (
           <Checkbox
             name="all_clear" //

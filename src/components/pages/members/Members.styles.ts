@@ -35,7 +35,7 @@ export const MembersStateFilterContainer = styled(Card)`
     display: flex;
     justify-content: space-between;
 
-    & > h3 {
+    & > h1 {
       font-size: 1.25rem;
       font-weight: 700;
     }
@@ -70,7 +70,7 @@ export const MemberCardRoot = styled(Card)`
     margin-bottom: 1.5rem;
     overflow: hidden;
   }
-  h3 {
+  h1 {
     ${TextSizeStyles.xl}
     font-weight: 700;
     margin-bottom: 1rem;

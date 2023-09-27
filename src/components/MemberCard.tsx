@@ -29,9 +29,9 @@ export default function MemberCard({ data }: MemberCardProps) {
           alt={id + '_avatar'}
         />
       </figure>
-      <h3>
+      <h1>
         {firstName} {lastName}
-      </h3>
+      </h1>
       <p>
         {state}, {postalCode}
       </p>

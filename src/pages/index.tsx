@@ -6,6 +6,9 @@ import useMembers from '@@contexts/MembersCtx';
 import { PageTitle } from '@@styles/globals';
 import Head from 'next/head';
 
+/**
+ * Page: Members / Home / Index
+ */
 export default function MembersPage() {
   const { loading, refetch } = useMembers();
 

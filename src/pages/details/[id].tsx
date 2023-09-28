@@ -7,18 +7,17 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-function MemberDetailsPage() {
-  const {
-    query: { id },
-  } = useRouter();
-  const { data, loading } = useQuery<QueryMemberType>(QueryMember, { pollInterval: 30000, variables: { id } });
+/**
+ * Page: Member details
+ */
+export default function MemberDetailsPage() {
+  const { query } = useRouter();
+  const { data, loading } = useQuery<QueryMemberType>(QueryMember, { pollInterval: 90000, variables: { id: query.id } });
   const member = data?.member;
-
-  if (!member || loading) return <MemberDetailsPageContainer as="main">LOADING</MemberDetailsPageContainer>;
+  if (!member || loading) return <MemberDetailsPageContainer as="main">⌛LOADING⌛</MemberDetailsPageContainer>;
 
   const { firstName, lastName, email, phoneNumber, address, profilePictureUrl } = member ?? ({} as Member);
   const FullAddress = `${address.country},\n${address.postalCode} ${address.state} ${address.city},\n${address.addressLine}`;
-  console.log('🚀 ➡️ file: [id].tsx:8 ➡️ MemberDetailsPage ➡️ data:', id, member, FullAddress);
 
   return (
     <>
@@ -27,7 +26,7 @@ function MemberDetailsPage() {
       </Head>
       <MemberDetailsPageContainer as="main">
         <figure>
-          <i>🌞🌚</i>
+          <i>🌞</i>
           <Image
             src={profilePictureUrl} //
             placeholder="blur"
@@ -43,6 +42,7 @@ function MemberDetailsPage() {
               objectFit: 'contain',
             }}
           />
+          <i>🌚</i>
         </figure>
         <section>
           <h1>
@@ -61,11 +61,12 @@ function MemberDetailsPage() {
             <b>{FullAddress}</b>
           </a>
         </section>
-
-        {/* <code style={{ whiteSpace: 'pre-line' }}>{JSON.stringify(address, null, 2)}</code> */}
       </MemberDetailsPageContainer>
     </>
   );
 }
 
-export default MemberDetailsPage;
+/** DEV:
+ * I know here should be the getStaticPaths & getStaticProps or the getServerSideProps,
+ * but now the SEO was not on our list
+ */

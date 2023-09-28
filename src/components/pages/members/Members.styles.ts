@@ -70,14 +70,40 @@ export const MembersGrid = styled.section`
   gap: inherit;
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   align-content: start;
+
+  & > .NoItemFound {
+    grid-column: 1 / -1;
+    padding: 1rem;
+    margin: auto;
+    border-radius: 0.25rem;
+    background-color: var(--color-blue-4-10);
+    border: 1px solid #fff;
+    color: #000;
+    line-height: 0.5;
+    font-size: 1.5rem;
+    font-weight: 600;
+    backdrop-filter: blur(0.1rem);
+    box-shadow: 0 1px 12px 1px var(--color-blue-4);
+
+    & > i {
+      font-size: 2rem;
+      font-style: normal;
+      line-height: 0;
+    }
+  }
 `;
 export const MemberCardRoot = styled(Card)<MemberCardRootProps>`
   padding: 2.5rem 1rem;
   text-align: center;
   transition: all 0.25s ease;
+  transition-property: transform, background-color, box-shadow, border;
 
   &:hover {
     background-color: var(--color-blue-4-10);
+    backdrop-filter: blur(0.1rem);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px -1px var(--color-blue-4);
+    border-color: #fff;
   }
 
   figure {

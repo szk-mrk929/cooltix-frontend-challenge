@@ -1,9 +1,18 @@
 import { PageContainer } from '@@styles/globals';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 /**
  * Styled components
  */
+const GlassmorphismCard = css`
+  box-shadow:
+    0 0.5px 0 1px rgba(255, 255, 255, 0.25) inset,
+    0 1px 0 0 rgba(255, 255, 255, 0.75) inset,
+    0 4px 16px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 100%);
+  backdrop-filter: blur(0.4rem);
+`;
 export const MemberDetailsPageContainer = styled(PageContainer)`
   display: flex;
   position: relative;
@@ -13,25 +22,28 @@ export const MemberDetailsPageContainer = styled(PageContainer)`
   & > figure {
     flex: 0 0 30%;
     z-index: 2;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow:
-      0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset,
-      0 1px 0 0 rgba(255, 255, 255, 0.66) inset,
-      0 4px 16px rgba(0, 0, 0, 0.12);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 100%);
-    backdrop-filter: blur(0.5rem);
+    padding: 1.75rem;
+    border-radius: 0.75rem;
+    ${GlassmorphismCard}
 
     & > i {
       display: inline-block;
       position: absolute;
-      left: 0rem;
-      top: 1rem;
       font-style: normal;
       font-size: 4.5rem;
       line-height: 0;
       margin: -1.25rem;
-      transform: rotateZ(-6deg);
+
+      &:nth-last-of-type(1) {
+        left: 1.5rem;
+        top: 1rem;
+        transform: rotateZ(-6deg);
+      }
+      &:nth-last-of-type(2) {
+        right: 2rem;
+        bottom: 1.5rem;
+        transform: rotateZ(-6deg);
+      }
     }
 
     & > img {
@@ -45,21 +57,20 @@ export const MemberDetailsPageContainer = styled(PageContainer)`
     flex: 0 0 auto;
     display: block;
 
-    & > h1 {
-      position: relative;
-      top: -1rem;
-      left: -1rem;
+    & > :is(h1, a) {
       width: fit-content;
-      font-size: 3rem;
+      position: relative;
       padding: 1rem 1.5rem;
       border-radius: 0.5rem;
-      box-shadow:
-        0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset,
-        0 1px 0 0 rgba(255, 255, 255, 0.66) inset,
-        0 4px 16px rgba(0, 0, 0, 0.12);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 100%);
-      backdrop-filter: blur(0.5rem);
-      transform: rotateZ(-12deg);
+      ${GlassmorphismCard}
+      line-height: 1.25;
+      left: -1.125rem;
+    }
+
+    & > h1 {
+      top: -1rem;
+      font-size: 3rem;
+      transform: rotateZ(-9deg);
     }
 
     & > a {
@@ -67,23 +78,11 @@ export const MemberDetailsPageContainer = styled(PageContainer)`
       align-items: center;
       gap: 0.25em;
       font-size: 1.25rem;
-      line-height: 1.5;
-      padding: 1rem 1.5rem;
-      border-radius: 0.5rem;
-      box-shadow:
-        0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset,
-        0 1px 0 0 rgba(255, 255, 255, 0.66) inset,
-        0 4px 16px rgba(0, 0, 0, 0.12);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 100%);
-      backdrop-filter: blur(0.5rem);
-      position: relative;
-      left: -1.25rem;
-      width: fit-content;
 
       & > i {
         display: block;
         font-style: normal;
-        font-size: 1.75em;
+        font-size: 2em;
       }
       & > b {
         display: block;
@@ -91,25 +90,18 @@ export const MemberDetailsPageContainer = styled(PageContainer)`
       }
 
       &:nth-of-type(1) {
-        top: 0.25rem;
-        transform: rotateZ(-5deg);
+        top: -0.5rem;
+        transform: rotateZ(-2.5deg);
       }
       &:nth-of-type(2) {
-        top: 0.75rem;
+        top: 0.25rem;
         transform: rotateZ(3deg);
       }
       &:nth-of-type(3) {
-        top: 1.5rem;
-        transform: rotateZ(12deg);
+        top: 0.75rem;
+        left: -1.75rem;
+        transform: rotateZ(7deg);
       }
     }
   }
 `;
-
-// box-shadow:
-// 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset,
-// 0 1px 0 0 rgba(255, 255, 255, 0.66) inset,
-// 0 4px 16px rgba(0, 0, 0, 0.12);
-// background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 100%);
-// backdrop-filter: blur(30px);
-// border-radius: 20px;

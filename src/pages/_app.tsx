@@ -9,13 +9,6 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
 /**
- * TODO:-
- * static path + props detailsnál
- * pagination
- *
- */
-
-/**
  * Emotion cache
  */
 const cache = createCache({ key: 'next' });
@@ -23,7 +16,7 @@ const cache = createCache({ key: 'next' });
 /**
  * Dynamic imports
  */
-const ApolloCtx = dynamic(() => import('@@contexts/ApolloCtx').then((m) => m.default)); // import ApolloCtx from '@@contexts/ApolloCtx';
+const ApolloCtx = dynamic(() => import('@@contexts/ApolloCtx').then((m) => m.default)); // + 30-40kb bundle size ➡️ import ApolloCtx from '@@contexts/ApolloCtx';
 
 /**
  * Root layout component of Next.js

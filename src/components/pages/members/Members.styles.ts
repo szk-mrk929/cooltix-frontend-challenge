@@ -1,6 +1,14 @@
 import Card from '@@components/ui/Card';
 import { PageContainer, PageTitle, TextSizeStyles } from '@@styles/globals';
 import styled from '@emotion/styled';
+import { LinkProps } from 'next/link';
+
+/**
+ * Types
+ */
+type MemberCardRootProps = Omit<LinkProps, 'as'> & {
+  //
+};
 
 /**
  * Styled components
@@ -17,6 +25,7 @@ export const MembersPageContainer = styled(PageContainer)`
 `;
 export const MembersNavbar = styled(Card)`
   display: flex;
+  background-color: var(--color-gray-1);
 
   & > p {
     margin-right: auto;
@@ -35,6 +44,7 @@ export const MembersStateFilterContainer = styled(Card)`
   max-height: calc(100dvh - 4rem - var(--nav-height, 0));
   min-width: 15ch;
   max-width: 25ch;
+  background-color: var(--color-gray-1);
 
   & > header {
     display: flex;
@@ -61,19 +71,28 @@ export const MembersGrid = styled.section`
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   align-content: start;
 `;
-export const MemberCardRoot = styled(Card)`
+export const MemberCardRoot = styled(Card)<MemberCardRootProps>`
   padding: 2.5rem 1rem;
   text-align: center;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background-color: var(--color-blue-4-10);
+  }
 
   figure {
     position: relative;
     width: 6rem;
     height: 6rem;
     border-radius: 50%;
-    background-color: gray;
     margin-inline: auto;
     margin-bottom: 1.5rem;
     overflow: hidden;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+    }
   }
   h1 {
     ${TextSizeStyles.xl}
@@ -87,5 +106,30 @@ export const MemberCardRoot = styled(Card)`
     display: block;
     ${TextSizeStyles.xs}
     font-weight: 500;
+  }
+
+  &.loading {
+    h1 {
+      width: 80%;
+      height: 1rem;
+      margin-inline: auto;
+      margin-bottom: 2rem;
+      border-radius: 2rem;
+      background-color: var(--color-gray-2, gray);
+    }
+    p {
+      width: 60%;
+      height: 0.75rem;
+      margin-inline: auto;
+      border-radius: 2rem;
+      background-color: var(--color-gray-2, gray);
+    }
+    small {
+      width: 60%;
+      height: 0.75rem;
+      margin-inline: auto;
+      border-radius: 2rem;
+      background-color: var(--color-gray-2, gray);
+    }
   }
 `;

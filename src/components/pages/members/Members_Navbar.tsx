@@ -17,14 +17,12 @@ const sortOptions: SelectOptionType[] = [
  * Component: Members_Navbar
  */
 export default function Members_Navbar() {
-  const { filter, members, filteredMembers, sortChange } = useMembers();
+  const { filter, members, filteredMembers, loading, sortChange } = useMembers();
 
   return (
     <MembersNavbar as="header">
-      <p>
-        Showing {filteredMembers.length} of {members.length} members
-      </p>
-      <Select label="Order" value={filter.sort} onChange={sortChange} options={sortOptions} />
+      <p>{!loading && !!members.length && `Showing ${filteredMembers.length} of ${members.length} members`}</p>
+      <Select label="Order" value={filter.sort} onChange={sortChange} options={sortOptions} disabled={loading} />
     </MembersNavbar>
   );
 }

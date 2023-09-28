@@ -7,7 +7,7 @@ import { useEffect } from 'react';
  * Component: Members_StateFilter
  */
 function Members_StateFilter() {
-  const { stateList, filter, filterStateSet, filterStateChanged } = useMembers();
+  const { stateList, filter, loading, filterStateSet, filterStateChanged } = useMembers();
   const isAll = filter.state.length < stateList.length;
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function Members_StateFilter() {
     <MembersStateFilterContainer as="aside">
       <header>
         <h1>States</h1>
-        {!!stateList.length && (
+        {!loading && !!stateList.length && (
           <Checkbox
             name="all_clear" //
             label={isAll ? 'All' : 'Clear all'}
@@ -34,7 +34,7 @@ function Members_StateFilter() {
         )}
       </header>
 
-      {!!stateList.length && (
+      {!loading && !!stateList.length && (
         <ul>
           {stateList.map(([state, count], i) => (
             <li key={i}>
@@ -45,6 +45,22 @@ function Members_StateFilter() {
                 onChange={filterStateChanged}
               />
             </li>
+          ))}
+        </ul>
+      )}
+
+      {loading && (
+        <ul>
+          {Array.from({ length: 20 }, (_, i) => (
+            <li
+              key={i}
+              css={{
+                width: '100%',
+                height: '1.25rem',
+                borderRadius: '2rem',
+                backgroundColor: 'var(--color-gray-2, gray)',
+              }}
+            ></li>
           ))}
         </ul>
       )}

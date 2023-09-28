@@ -4,6 +4,7 @@ import SearchInput from '@@components/ui/SearchInput';
 import useMembers from '@@contexts/MembersCtx';
 import { Container } from '@@styles/globals';
 import styled from '@emotion/styled';
+import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
 /**
@@ -28,7 +29,7 @@ const NavbarContainer = styled(Container)`
   align-items: center;
   gap: 1rem;
 
-  & > svg {
+  & > a {
     margin-right: auto;
   }
 
@@ -52,7 +53,7 @@ const NavbarContainer = styled(Container)`
  */
 export default function Header() {
   const navRef = useRef<HTMLElement>(null);
-  const { filter, filterNameChange } = useMembers();
+  const { filter, loading, filterNameChange } = useMembers();
 
   useEffect(() => {
     if (!navRef.current) return;
@@ -69,8 +70,10 @@ export default function Header() {
   return (
     <Navbar ref={navRef} active={!!filter.name.length}>
       <NavbarContainer>
-        <CooltixLogo />
-        <SearchInput value={filter.name} onChange={(e) => filterNameChange(e.target.value)} />
+        <Link href="/">
+          <CooltixLogo />
+        </Link>
+        <SearchInput value={filter.name} onChange={(e) => filterNameChange(e.target.value)} disabled={loading} />
         {/* <NavbarButton></NavbarButton> */}
         {/* <NavbarButton></NavbarButton> */}
       </NavbarContainer>

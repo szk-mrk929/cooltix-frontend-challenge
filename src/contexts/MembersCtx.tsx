@@ -78,7 +78,11 @@ const MembersFilterReducer: MembersFilterReducerFn = (state, action) => {
  */
 export function MembersProvider({ children }: MembersProviderProps) {
   const [state, dispatch] = useReducer(MembersFilterReducer, initialFilterState);
-  const { data, loading, error, refetch } = useQuery<QueryMembersType>(QueryMembers);
+  const { data, loading, error, refetch } = useQuery<QueryMembersType>(QueryMembers, {
+    pollInterval: 90 * 1000,
+    refetchWritePolicy: 'overwrite',
+    // notifyOnNetworkStatusChange: true,
+  });
 
   const members = useMemo(() => data?.allMembers || [], [data?.allMembers]);
   const filteredMembers = useMemo(() => {

@@ -45,6 +45,15 @@ export const InputWrapper = styled.fieldset`
     border-color: transparent;
     box-shadow: 0 0 0 2px var(--color-blue-3);
   }
+
+  &:has(input:disabled) {
+    cursor: not-allowed;
+    opacity: 40%;
+
+    input {
+      cursor: not-allowed;
+    }
+  }
 `;
 
 /**

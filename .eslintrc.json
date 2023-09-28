@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint", //
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended", //
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "rules": {
+    "no-unused-vars": 0,
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
+    "prettier/prettier": ["warn", {}, { "usePrettierrc": true, "fileInfoOptions": { "withNodeModules": true } }],
+    "@typescript-eslint/no-unused-vars": ["warn", {}],
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/ban-ts-comment": 0
+  }
+}

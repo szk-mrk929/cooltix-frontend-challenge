@@ -2,8 +2,8 @@ import facebook from '@@assets/icons/facebook.svg';
 import instagram from '@@assets/icons/instagram.svg';
 import linkedin from '@@assets/icons/linkedin.svg';
 import styled from '@emotion/styled';
-import Image, { type StaticImageData } from 'next/image';
-import type { ComponentProps } from 'react';
+import Image, {type StaticImageData} from 'next/image';
+import type {ComponentProps} from 'react';
 
 /**
  * Types

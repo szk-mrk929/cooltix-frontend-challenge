@@ -9,6 +9,13 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
 /**
+ * TODO:-
+ * static path + props detailsnál
+ * pagination
+ *
+ */
+
+/**
  * Emotion cache
  */
 const cache = createCache({ key: 'next' });

@@ -42,8 +42,8 @@ export const MembersStateFilterContainer = styled(Card)`
   bottom: 1rem;
   height: fit-content;
   max-height: calc(100dvh - 4rem - var(--nav-height, 0));
-  min-width: 15ch;
-  max-width: 25ch;
+  min-width: 20ch;
+  max-width: 30ch;
   background-color: var(--color-gray-1);
 
   & > header {

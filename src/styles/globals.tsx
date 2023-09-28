@@ -117,8 +117,10 @@ export const PageContainer = styled(Container)`
 `;
 export const LayoutRoot = styled.div`
   display: grid;
+  position: relative;
   min-height: 100dvh;
   grid-template-rows: auto 1fr auto;
+  background-image: url('/background.png');
 `;
 export const PageTitle = styled.h1`
   ${TextSizeStyles.xxl}

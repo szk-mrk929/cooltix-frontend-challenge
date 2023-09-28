@@ -38,7 +38,6 @@ export const QueryMembers = gql`
 export const QueryMember = gql`
   query QueryMember($id: ID!) {
     member(id: $id) {
-      id
       email
       firstName
       lastName

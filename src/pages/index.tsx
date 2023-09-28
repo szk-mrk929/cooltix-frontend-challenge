@@ -17,9 +17,22 @@ export default function MembersPage() {
       <MembersPageContainer as="main">
         <PageTitle>
           Members{' '}
-          <a css={{ cursor: 'pointer' }} onClick={() => refetch()}>
+          <button
+            css={{
+              cursor: 'pointer',
+              border: 'none',
+              fontSize: '2rem',
+              background: 'none',
+              willChange: 'transform',
+              transition: 'transform .25s ease',
+              '&:hover': {
+                transform: 'scale(1.2)',
+              },
+            }}
+            onClick={() => refetch()}
+          >
             {loading ? '⌛' : '🔁'}
-          </a>
+          </button>
         </PageTitle>
         <Members_StateFilter />
         <Members_Navbar />

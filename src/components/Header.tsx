@@ -5,6 +5,7 @@ import useMembers from '@@contexts/MembersCtx';
 import { Container } from '@@styles/globals';
 import styled from '@emotion/styled';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useRef } from 'react';
 
 /**
@@ -52,6 +53,7 @@ const NavbarContainer = styled(Container)`
  * Layout component: Header
  */
 export default function Header() {
+  const { pathname } = useRouter();
   const navRef = useRef<HTMLElement>(null);
   const { filter, loading, filterNameChange } = useMembers();
 
@@ -70,10 +72,10 @@ export default function Header() {
   return (
     <Navbar ref={navRef} active={!!filter.name.length}>
       <NavbarContainer>
-        <Link href="/">
+        <Link href="/" title="(members/home/index)page">
           <CooltixLogo />
         </Link>
-        <SearchInput value={filter.name} onChange={(e) => filterNameChange(e.target.value)} disabled={loading} />
+        {pathname === '/' && <SearchInput value={filter.name} onChange={(e) => filterNameChange(e.target.value)} disabled={loading} />}
         {/* <NavbarButton></NavbarButton> */}
         {/* <NavbarButton></NavbarButton> */}
       </NavbarContainer>
